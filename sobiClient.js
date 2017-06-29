@@ -9,14 +9,17 @@ const options = {
         // TODO: fix this
         'Authorization': 'Bearer ' + config.get('auth_token')
     },
-    json: true
+    json: true,
+    url: 'https://app.socialbicycles.com/api/bikes.json?network_id=' + config.get('network_id') + '&per_page=1000'
+    // TODO: handle this URL/config better
 }
 
-rp(_.extend(options, {url: 'https://app.socialbicycles.com/api/bikes.json?network_id=' + config.get('network_id') + '&per_page=1000'}))
-    // TODO: handle this better
-    .then( body => {
-        console.log(body)
-    })
-    .catch( err => {
-        console.error('oops, something went wrong: ' + err)
-    });
+module.exports = () => {
+    return rp(options)
+        .then( body => {
+            console.log(body)
+        })
+        .catch( err => {
+            console.error('oops, something went wrong: ' + err)
+        });
+}
