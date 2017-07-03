@@ -15,7 +15,9 @@
   "dependencies": {
     "config": "1.26.1",
     "cron": "1.2.1",
+    "knex": "0.13.0",
     "lodash": "4.17.4",
+    "pg": "6.4.0",
     "request": "2.81.0",
     "request-promise": "4.2.1"
   }
